@@ -1,1 +1,1 @@
-# basics_of_web_applications
+# basics of web applications
