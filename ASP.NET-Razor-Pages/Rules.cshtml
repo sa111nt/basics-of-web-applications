@@ -1,0 +1,41 @@
+﻿@{
+    Layout = null;
+    var rules = Session["rules"] as List<string>;
+    if (rules == null)
+    {
+        rules = new List<string>();
+        Session["rules"] = rules;
+    }
+
+    if (IsPost)
+    {
+        var newRule = Request["rule"];
+        if (!String.IsNullOrWhiteSpace(newRule))
+        {
+            rules.Add(newRule);
+        }
+        Response.Redirect("Rules.cshtml");
+    }
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>Rules</title>
+</head>
+<body>
+    <form method="post">
+        <label for="rule">Nowa reguła:</label>
+        <input type="text" id="rule" name="rule" />
+        <button type="submit">Dodaj</button>
+    </form>
+
+    <ol>
+        @foreach (var rule in rules)
+        {
+            <li>@rule</li>
+        }
+    </ol>
+</body>
+</html>
