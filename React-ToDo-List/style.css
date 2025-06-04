@@ -1,0 +1,11 @@
+.app-container {
+    text-align: center;
+}
+
+.todo-box {
+    border: 1px solid black;
+    display: inline-block;
+    padding: 20px;
+    min-width: 300px;
+    border-radius: 5px;
+}
